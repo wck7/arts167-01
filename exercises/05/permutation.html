@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Permutation Workshop</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  body {
+    margin: 0;
+    background-color: black;
+  }
+  * {
+    font-family: sans-serif;
+    font-size: 2vw;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-weight: normal;
+    text-decoration: none;
+    /*color: black;*/
+  }
+
+  img {
+		/*position: fixed;
+		top: 50%;
+		left: 50%;*/
+		/*transform: translate(-50%, -50%);*/
+  }
+
+  #something {
+  		display: inline-block;
+		float: left;
+		width: 100vw;
+
+  }
+  #something2 {
+  		display: inline-block;
+		float: left;
+		width: 25vw;
+
+  }
+  #something3 {
+  		display: inline-block;
+		float: left;
+		width: 25vw;
+
+  }
+  #something4 {
+  		display: inline-block;
+		float: left;
+		width: 25vw;
+
+  }
+
+  h1 {
+  		color: white;
+  		display: block;
+  		position: fixed;
+  		top: 1em;
+  		left: 1em;
+  		z-index: 1;
+  }
+
+  </style>
+</head>
+<body>
+
+	<h1 id="text"></h1>
+	<img id="something" src=""><img id="something2" src="">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		var delay = 50 //Delay in milliseconds
+
+
+		// Arrays
+		var myImageArray = ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png", "08.png", "09.png", "10.png", "11.png", "12.png", "13.png", "14.png", "15.png", "16.png", "17.png", "18.png", "19.png", "20.png"];
+		var myTextArray = ["hi", "bryce", "these", "are", "the", "last", "20", "screenshots", "on", "my", "desktop"];
+
+		// HTML Elements
+		var imageContainer = document.getElementById('something'); // plain JS
+		var textContainer = $('#text'); // jQuery
+
+		// Function to randomly select a string from "myImageArray"
+    function updateImage() {
+        i = Math.floor(Math.random() * myImageArray.length);
+        imageContainer.src = myImageArray[i]; //plain JS
+        console.log("Image: " + i);
+    };
+
+		// Function to randomly select a string from "myTextArray"
+		function updateText() {
+        i = Math.floor(Math.random() * myTextArray.length);
+        textContainer.html(myTextArray[i]); // jQuery
+        console.log("Text: " + i);
+    };
+
+		// Execute randomizer functions with delay
+		setInterval(function() {
+				updateImage();
+				updateText();
+		}, delay);
+
+	});
+	</script>
+</body>
+</html>
